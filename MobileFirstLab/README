@@ -1,0 +1,4 @@
+cd *your path*/MobileFirstLab/src
+javac MainClass.java
+java MainClass
+Enter csv filepath (if you clone this rep, you can enter data.csv)
