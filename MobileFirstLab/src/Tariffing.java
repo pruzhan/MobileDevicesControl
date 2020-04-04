@@ -20,13 +20,15 @@ public class Tariffing {
         LocalTime inEnd = inTimestamp.plusSeconds((long)(inDuration*60));
         LocalTime outEnd = outTimestamp.plusSeconds((long)(outDuration*60));
         while (!(inTimestamp.equals(inEnd))) {
-            if (inTimestamp.getMinute() < 30) price += 4.0 / 60;
+            if ((inTimestamp.getMinute() < 30 & outTimestamp.getHour()==0) | inTimestamp.getHour()>=8) 
+                price += 4.0 / 60;
             else price += 2.0 / 60;
             inTimestamp = inTimestamp.plusSeconds(1);
             if (inTimestamp.equals(LocalTime.parse("01:00:00"))) break;
         }
         while (!(outTimestamp.equals(outEnd))) {
-            if (outTimestamp.getMinute() < 30) price += 4.0 / 60;
+            if ((outTimestamp.getMinute() < 30 & outTimestamp.getHour() == 0) | outTimestamp.getHour() >=8) 
+                price += 4.0 / 60;
             else price += 2.0 / 60;
             outTimestamp = outTimestamp.plusSeconds(1);
             if (outTimestamp.equals(LocalTime.parse("01:00:00"))) break;
