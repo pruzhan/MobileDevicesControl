@@ -44,7 +44,7 @@ public class TrafficParser {
             }
         }
         Tariffing tariffing = new Tariffing(in, out, sms, inTimestamp, outTimestamp);
-        System.out.println("К оплате: " + tariffing.Price() + " р.");
+        System.out.println("Price: " + tariffing.Price() + " R.");
     }
 
     private boolean IsColumnPart(String text) {
