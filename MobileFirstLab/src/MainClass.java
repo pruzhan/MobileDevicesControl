@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class MainClass {
     public static void main(String[] args) throws IOException {
         Scanner file = new Scanner(System.in);
-        System.out.println("Укажите путь к csv файлу");
+        System.out.println("Enter CSV filepath");
         TrafficParser trafficParser = new TrafficParser(file.nextLine());
         trafficParser.ParseCSV();
     }
