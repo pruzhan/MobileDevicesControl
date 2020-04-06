@@ -17,25 +17,12 @@ public class Tariffing {
 
     public double Price() {
         double price = 0.0;
-        LocalTime inEnd = inTimestamp.plusSeconds((long)(inDuration*60));
-        LocalTime outEnd = outTimestamp.plusSeconds((long)(outDuration*60));
-        while (!(inTimestamp.equals(inEnd))) {
-            if ((inTimestamp.getMinute() < 30) 
-                price += 4.0 / 60;
-            else price += 2.0 / 60;
-            inTimestamp = inTimestamp.plusSeconds(1);
-            if (inTimestamp.equals(LocalTime.parse("01:00:00"))) break;
-        }
-        while (!(outTimestamp.equals(outEnd))) {
-            if ((outTimestamp.getMinute() < 30) 
-                price += 4.0 / 60;
-            else price += 2.0 / 60;
-            outTimestamp = outTimestamp.plusSeconds(1);
-            if (outTimestamp.equals(LocalTime.parse("01:00:00"))) break;
-        }
+        if ((inTimestamp.getMinute() < 30)) price += 4.0 * inDuration;
+        else price += 2.0 * inDuration;
+        if ((outTimestamp.getMinute() < 30)) price += 4.0 * outDuration;
+        else price += 2.0 * outDuration;
         price += smsCount * 1.5;
-        price = Math.round(price * 100);
-        price /= 100;
         return price;
     }
 }
+
