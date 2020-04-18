@@ -1,0 +1,3 @@
+cd *your path*/MobileSecondLab/src
+javac MainClass.java
+java MainClass *csv filepath* (if you clone this rep, you can enter data_2.csv)
